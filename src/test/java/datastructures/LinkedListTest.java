@@ -81,15 +81,33 @@ public class LinkedListTest {
         Assert.assertEquals(3, linkedList.getLast());
     }
 
-    // TODO
+    @Test
+    public void Contains() {
+        linkedList.addBack(1);
+        linkedList.addBack(2);
+        linkedList.addBack(3);
+        Assert.assertEquals(true, linkedList.contains(2));
+        Assert.assertEquals(false, linkedList.contains(4));
 
-    // Size
-    // Clear
-    // Delete with value
-    // Remove front
-    // Remove back
-    // Contains
+    }
 
-    // What you need to know
+    @Test
+    public void RemoveFront() {
+        linkedList.addBack(1);
+        linkedList.addBack(2);
+        linkedList.addBack(3);
+        linkedList.removeFront();
+        Assert.assertEquals(2, linkedList.getFirst());
+
+    }
+
+    @Test
+    public void RemoveBack() {
+        linkedList.addBack(1);
+        linkedList.addBack(2);
+        linkedList.addBack(3);
+        linkedList.removeBack();
+        Assert.assertEquals(2, linkedList.getLast());
+    }
 
 }
