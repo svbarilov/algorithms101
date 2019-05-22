@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class LinkedListTest {
 
-    private LinkedList linkedList;
+    private ZMyLinkedList linkedList;
 
     @Before
     public void SetUp() {
-        linkedList = new LinkedList();
+        linkedList = new ZMyLinkedList();
     }
 
     @Test
