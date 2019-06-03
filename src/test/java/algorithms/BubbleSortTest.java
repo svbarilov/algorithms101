@@ -6,16 +6,16 @@ import org.junit.Test;
 
 public class BubbleSortTest {
 
-    private BubbleSort bubbleSort;
+    private ZMyBubbleSort bubbleSort;
 
     @Before
     public void SetUp() {
-        bubbleSort = new BubbleSort();
+        bubbleSort = new ZMyBubbleSort();
     }
 
     @Test
     public void Sort() {
-        int[] array = {5, 1, 4, 2, 8};
+        int[] array = {5, 1, 4, 2, 8, 9 , 11, 12};
 
         int[] sorted = bubbleSort.sort(array);
 
