@@ -52,6 +52,7 @@ public class BinarySearchTree {
 
     // Insert
     public void insert(int key, String value) {
+
         root = insertItem(root, key, value);
     }
 
