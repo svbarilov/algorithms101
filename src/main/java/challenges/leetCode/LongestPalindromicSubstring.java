@@ -14,55 +14,72 @@ public class LongestPalindromicSubstring {
 //    Input: "cbbd"
 //    Output: "bb"
 
+
+//        pointer goes through string and calls expandAroundCenter
+//        expandAround center is called for i and i+1 to account for 2 possible centers
+//        One with the actual altter and one between letters
+//        then we pick the max palindrome length of these two
+//        we calculate substring based on i and longest length
+
     public String longestPalindrome(String s) {
 
-//        pointer goes through string and checks for palindrome
-//        if palindrome we try to increase the palindrome
-//        if no we move the pointer
-//        to check for palindrome at i we check if i-1 eq i+1 or
-//        i eq i-1
-
-        if (s.length() == 0) {
-            return "";
-        }
-        if (s.length() == 1) {
+        if (s == null || s.length() < 1) {
             return s;
         }
-        String longest = s.substring(0, 1);
-        for (int i = 1; i < s.length() ; i++) {
-            if  (i + 1 < s.length() && s.charAt(i - 1) == s.charAt(i + 1)){
-                String substring = s.substring(i - 1, i + 1 + 1);
-                longest = longest.length() > substring.length() ? longest : substring;
-                for (int j = 1; i - j >= 0 && j + i < s.length(); ++j) {
-                    if (s.charAt(i + j) == s.charAt(i - j)) {
-                        String expandedSubstring =  s.substring(i - j, i + j + 1);
-                        longest = longest.length() > expandedSubstring.length() ? longest : expandedSubstring;
-                    } else {
-                        continue;
-                    }
-                }
-            } else if (s.charAt(i) == s.charAt(i - 1)) {
-                String substring = s.substring(i - 1, i + 1);
-                longest = longest.length() > substring.length() ? longest : substring;
-                for (int j = 1; i - j - 1 >= 0 && j + i < s.length(); ++j) {
-                    if (s.charAt(i + j) == s.charAt(i - j - 1)) {
-                        String expandedSubstring = s.substring(i - j - 1, i + j + 1);
-                        longest = longest.length() > expandedSubstring.length() ? longest : expandedSubstring;
-                    } else {
-                        continue;
-                    }
-                }
-            } else {
-                continue;
-            }
+        String longest = String.valueOf(s.charAt(0));
+        for (int i = 0; i < s.length(); i++) {
+            String pol1 = expandAroundCenter(s, i, i);
+            String pol2 = expandAroundCenter(s, i, i+1);
+            String pol3 = pol1.length() > pol2.length() ? pol1 : pol2;
+            longest = longest.length() > pol3.length() ? longest : pol3;
         }
         return longest;
     }
 
+    private String expandAroundCenter(String s, int l, int r) {
+        String pol = "";
+        while(l>=0 && r<s.length() && s.charAt(l) == s.charAt(r)) {
+            pol = s.substring(l, r+1);
+            l--;
+            r++;
+        }
+        return pol;
+    }
+
+
+
+
+
+
     public static void main(String[] args) {
 
         LongestPalindromicSubstring prog = new LongestPalindromicSubstring();
-        String testString = "ccc";
+        String testString = "cccc";
         prog.longestPalindrome(testString);
     }
 }
+
+
+//    public String longestPalindrome(String s) {
+//        if (s == null || s.length() < 1) return "";
+//        int start = 0, end = 0;
+//        for (int i = 0; i < s.length(); i++) {
+//            int len1 = this.expandAroundCenter(s, i, i);
+//            int len2 = expandAroundCenter(s, i, i + 1);
+//            int len = Math.max(len1, len2);
+//            if (len > end - start) {
+//                start = i - (len - 1) / 2;
+//                end = i + len / 2;
+//            }
+//        }
+//        return s.substring(start, end + 1);
+//    }
+//
+//    private int expandAroundCenter(String s, int left, int right) {
+//        int L = left, R = right;
+//        while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+//            L--;
+//            R++;
+//        }
+//        return R - L - 1;
+//    }
