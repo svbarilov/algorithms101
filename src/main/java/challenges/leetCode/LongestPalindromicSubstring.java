@@ -21,29 +21,33 @@ public class LongestPalindromicSubstring {
 //        then we pick the max palindrome length of these two
 //        we calculate substring based on i and longest length
 
+
     public String longestPalindrome(String s) {
 
         if (s == null || s.length() < 1) {
             return s;
         }
-        String longest = String.valueOf(s.charAt(0));
+        int result = 0;
+        int start = 0; int end = 0;
         for (int i = 0; i < s.length(); i++) {
-            String pol1 = expandAroundCenter(s, i, i);
-            String pol2 = expandAroundCenter(s, i, i+1);
-            String pol3 = pol1.length() > pol2.length() ? pol1 : pol2;
-            longest = longest.length() > pol3.length() ? longest : pol3;
+            int pol1 = expandAroundCenter(s, i, i);
+            int pol2 = expandAroundCenter(s, i, i+1);
+            int len = Math.max(pol1, pol2);
+            if (result < len) {
+                result = len;
+                start = i - (result-1)/2;
+                end = i + result/2;
+            }
         }
-        return longest;
+        return s.substring(start, end+1);
     }
 
-    private String expandAroundCenter(String s, int l, int r) {
-        String pol = "";
+    private int expandAroundCenter(String s, int l, int r) {
         while(l>=0 && r<s.length() && s.charAt(l) == s.charAt(r)) {
-            pol = s.substring(l, r+1);
             l--;
             r++;
         }
-        return pol;
+        return r - l - 1;
     }
 
 
@@ -52,7 +56,6 @@ public class LongestPalindromicSubstring {
 
 
     public static void main(String[] args) {
-
         LongestPalindromicSubstring prog = new LongestPalindromicSubstring();
         String testString = "cccc";
         prog.longestPalindrome(testString);
@@ -60,6 +63,7 @@ public class LongestPalindromicSubstring {
 }
 
 
+// Solution from leetCode
 //    public String longestPalindrome(String s) {
 //        if (s == null || s.length() < 1) return "";
 //        int start = 0, end = 0;
@@ -82,4 +86,32 @@ public class LongestPalindromicSubstring {
 //            R++;
 //        }
 //        return R - L - 1;
+//    }
+
+
+
+//  My solution with recalculating substrings
+//    public String longestPalindrome(String s) {
+//
+//        if (s == null || s.length() < 1) {
+//            return s;
+//        }
+//        String longest = String.valueOf(s.charAt(0));
+//        for (int i = 0; i < s.length(); i++) {
+//            String pol1 = expandAroundCenter(s, i, i);
+//            String pol2 = expandAroundCenter(s, i, i+1);
+//            String pol3 = pol1.length() > pol2.length() ? pol1 : pol2;
+//            longest = longest.length() > pol3.length() ? longest : pol3;
+//        }
+//        return longest;
+//    }
+//
+//    private String expandAroundCenter(String s, int l, int r) {
+//        String pol = "";
+//        while(l>=0 && r<s.length() && s.charAt(l) == s.charAt(r)) {
+//            pol = s.substring(l, r+1);
+//            l--;
+//            r++;
+//        }
+//        return pol;
 //    }
