@@ -5,11 +5,11 @@ import org.junit.Test;
 
 public class GraphTest {
 
-    private Graph g;
+    private MyGraphDFS g;
 
     @Before
     public void SetUp() {
-        g = new Graph(8);
+        g = new MyGraphDFS(8);
     }
 
     @Test
@@ -37,7 +37,8 @@ public class GraphTest {
         System.out.println("Following is Depth First Traversal "+
                 "(starting from vertex 0)");
 
-        g.DFS(0);
+//        g.DFS(0);
+        g.DFS();
     }
 
     @Test
@@ -56,7 +57,8 @@ public class GraphTest {
         System.out.println("Following is Depth First Traversal "+
                 "(starting from vertex 0)");
 
-        g.DFS(0);
+//        g.DFS(0);
+        g.DFS();
     }
 
 }
