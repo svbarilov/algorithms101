@@ -56,11 +56,11 @@ public class MyGraphDFS {
         HashMap<Integer, Integer> parent = new HashMap<>();
         for (int i = 0; i < adj.length; i++) {
             if (!parent.containsKey(i)) {
+                parent.put(i, null);
                 DFSvisit(i, parent);
             }
-
-
         }
+        System.out.println("Exiting");
 
     }
 
@@ -68,15 +68,17 @@ public class MyGraphDFS {
 
     private void DFSvisit(int s, HashMap<Integer, Integer> parent) {
         // if not visited recursively visit all adj nodes
-        if (!parent.containsKey(s)) {
-            parent.put(s, null);
             System.out.println(s);
             Iterator<Integer> iterator = adj[s].listIterator();
             while (iterator.hasNext()) {
                 Integer node = iterator.next();
-                DFSvisit(node, parent);
+                if (!parent.containsKey(node)) {
+                    parent.put(node, s);
+                    DFSvisit(node, parent);
+                }
+
             }
-        }
+
 
 
     }
