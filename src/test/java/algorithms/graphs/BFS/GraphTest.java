@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class GraphTest {
 
-    private Graph g;
+    private MyGraphBFS g;
 
     @Before
     public void SetUp() {
-        g = new Graph(8);
+        g = new MyGraphBFS(8);
     }
 
     @Test
