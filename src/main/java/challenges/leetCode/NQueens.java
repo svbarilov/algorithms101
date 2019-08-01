@@ -27,6 +27,21 @@ public class NQueens {
         ///////////////////////////////////////////////////////////////////////
     }
 
+    // to run on leetCode
+//    public static List<List<String>> solveNQueens(int n) {
+//        StringBuilder partialBuilder = new StringBuilder();
+//        for (int z = 0; z < n; z++) {
+//            partialBuilder.append(".");
+//        }
+//        List<List<String>> result = new ArrayList<>();
+//        List<String> oneSolution= new ArrayList<>();
+//        char queen = 'Q';
+//        queensHelper(n, 0, partialBuilder, oneSolution, result, queen);
+//        return result;
+//    }
+
+
+
     public static void queensHelper(int n, int row, StringBuilder template, List<String> oneSolution, List<List<String>> result, char queen) {
         StringBuilder partial = new StringBuilder(template);
         if (row == n) {
@@ -40,7 +55,6 @@ public class NQueens {
             }
             oneSolution.remove(oneSolution.size()  - 1);
             partial.setCharAt(i, '.');
-//            row = row - 1;
         }
     }
 
@@ -49,16 +63,18 @@ public class NQueens {
             return true;
 
         }
-        for (int startRow = 0; startRow < solution.size() - 1 ; startRow++) {
-            String firstRow = solution.get(startRow);
-            int firstRowQ = 0;
+        for (int startRowIndex = 0; startRowIndex < solution.size() - 1 ; startRowIndex++) {
+            String firstRowActual = solution.get(startRowIndex);
+            int firstRowQIndex = 0;
             for(int z = 0; z < n; z++) {
-                if(firstRow.charAt(z) == queen) {
-                    firstRowQ = z;
+                if(firstRowActual.charAt(z) == queen) {
+                    firstRowQIndex = z;
                 }
             }
-            for (int j = startRow + 1; j < solution.size(); j++) {
-                if (solution.get(j).charAt(firstRowQ) == queen || (firstRowQ + j < n && solution.get(j).charAt(firstRowQ + j) == queen) || (firstRowQ - j >= 0 && solution.get(j).charAt(firstRowQ - j) == queen)) {
+            for (int j = 1; j < solution.size() - startRowIndex; j++) {
+                if (solution.get(startRowIndex + j).charAt(firstRowQIndex) == queen ||
+                        (firstRowQIndex + j < n && solution.get(startRowIndex + j).charAt(firstRowQIndex + j) == queen) ||
+                        (firstRowQIndex - j >= 0 && solution.get(startRowIndex + j).charAt(firstRowQIndex - j) == queen)) {
                     return false;
                 }
             }
