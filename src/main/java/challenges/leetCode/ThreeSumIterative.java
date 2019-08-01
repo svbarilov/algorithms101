@@ -13,7 +13,7 @@ public class ThreeSumIterative {
 //        Initialize two index variables l=i+1 and r=n-1
 //        4. while (l < r)
 //            Check sum of arr[i], arr[l], arr[r] is
-//        zero or not if sum is zero t«hen print the
+//        zero or not if sum is zero then print the
 //        triplet and do l++ and r--.
 
 //        for unique set solution have separate loops for l and r that run while l < r
