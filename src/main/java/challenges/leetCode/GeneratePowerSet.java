@@ -6,7 +6,7 @@ public class GeneratePowerSet {
 
     // combination
     public static void main(String[] args) {
-        int[] input = {1, 2, 3, 4, 5, 6};
+        int[] input = {1, 2, 3, 4, 5};
 //        powerset(input, new ArrayList<>(), 0);
         powersetAlt(input, new ArrayList<>(), 0);
     }
