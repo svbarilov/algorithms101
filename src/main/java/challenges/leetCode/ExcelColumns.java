@@ -3,6 +3,24 @@ package challenges.leetCode;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//Given a positive integer, return its corresponding column title as appear in an Excel sheet.
+//
+//        For example:
+//
+//        1 -> A
+//        2 -> B
+//        3 -> C
+//        ...
+//        26 -> Z
+//        27 -> AA
+//        28 -> AB
+//        ...
+//        Example 1:
+//
+//        Input: 1
+//        Output: "A"
+
 public class ExcelColumns {
 
     public String columns(int num) {

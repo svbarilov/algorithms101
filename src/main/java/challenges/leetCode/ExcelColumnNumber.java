@@ -3,6 +3,26 @@ package challenges.leetCode;
 import java.util.HashMap;
 import java.util.Map;
 
+
+//Given a column title as appear in an Excel sheet, return its corresponding column number.
+//
+//        For example:
+//
+//        A -> 1
+//        B -> 2
+//        C -> 3
+//        ...
+//        Z -> 26
+//        AA -> 27
+//        AB -> 28
+//        ...
+//        Example 1:
+//
+//        Input: "A"
+//        Output: 1
+
+
+
 public class ExcelColumnNumber {
 
     public int columns(String st) {
