@@ -1,28 +1,29 @@
 package challenges.leetCode;
 
-import java.util.ArrayDeque;
 
 public class ZZZTest {
 
 //    public static void main(String[] args) {
-//        String s = "abbaca";
-//        removeDuplicates(s);
+//        int[] nums  = {0,0,1,1,1,2,2,3,3,4};
+//        int result = removeDuplicates(nums);
+//        System.out.println(result);
 //
 //    }
 //
-//    public static char[] removeDuplicates(String s) {
+//    public static int removeDuplicates(int[] nums) {
+//        int i = 0;
+//        int j = 0;
+//        while (j < nums.length) {
+//            if (nums[i] == nums[j]) {
+//                j += 1;
 //
-//        char[] arr = s.toCharArray();
-//        ArrayDeque<Character> stack = new ArrayDeque();
-//        for (int i = 0; i < s.length(); i++) {
-//            if (stack.peek() == arr[i]) {
-//                stack.pop();
 //            } else {
-//                stack.push(arr[i]);
+//                i += 1;
+//                nums[i] = nums [j];
+//                j += 1;
 //            }
 //        }
-//        Character[] res = new char[stack.size()];
-//        return stack.toArray(res);
+//        return i+1;
 //    }
 }
 
