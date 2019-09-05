@@ -3,7 +3,7 @@ package challenges.leetCode;
 public class RotateMatrix90 {
 
     public static void main(String[] args) {
-        int[][] N = new int[4][4];
+        int[][] N = new int[8][8];
         int val = 11;
         for (int i = 0; i < N.length; i++) {
             for (int j = 0; j < N.length; j++) {
@@ -24,7 +24,7 @@ public class RotateMatrix90 {
         int[] right = new int[length];
         int[] bottom = new int[length];
         int[] left = new int[length];
-        for (int s = 0; s <= length/2; s++) {
+        for (int s = 0; s <= N.length/2; s++) {
             ////////   saving edges    //////////////////
             // fill top
             for (int h = s; h < length; h++) {
