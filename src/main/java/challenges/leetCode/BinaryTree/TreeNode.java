@@ -30,7 +30,29 @@ public class TreeNode {
         insertItem(root, 16, "g");
         insertItem(root, 8, "h");
         insertItem(root, 10, "u");
-//        insertItem(root, 0, "k");
+        return root;
+    }
+
+
+    public static TreeNode setupSymmetricTree() {
+        TreeNode root = new TreeNode(7, "e");
+        insertItem(root, 11, "c");
+        insertItem(root, 5, "c");
+        insertItem(root, 3, "d");
+        insertItem(root, 6, "g");
+        insertItem(root, 10, "g");
+        insertItem(root, 12, "d");
+        return root;
+    }
+
+
+    public static TreeNode setupAssymetricTree() {
+        TreeNode root = new TreeNode(7, "e");
+        insertItem(root, 11, "c");
+        insertItem(root, 5, "b");
+        insertItem(root, 3, "d");
+        insertItem(root, 6, "g");
+        insertItem(root, 10, "h");
         return root;
     }
 
