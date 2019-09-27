@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class BinarySearchTreeTest {
 
-    private BinarySearchTree bst;
+    private ZMyBinarySearchTree bst;
 
     @Before
     public void SetUp() {
-        bst = new BinarySearchTree();
+        bst = new ZMyBinarySearchTree();
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BinarySearchTreeTest {
 
 //        bst.printInOrderTraversal();
 //        bst.printPreOrderTraversal();
-        bst.printPostOrderTraversal();
+//        bst.printPostOrderTraversal();
     }
 
     @Test
@@ -44,7 +44,6 @@ public class BinarySearchTreeTest {
         bst.insert(5, "e");
         bst.insert(3, "c");
         bst.insert(2, "b");
-
         Assert.assertEquals(2, bst.findMinKey());
     }
 
@@ -73,7 +72,7 @@ public class BinarySearchTreeTest {
         bst.insert(4, "d");
         bst.insert(7, "g");
         bst.insert(6, "f");
-//        bst.insert(8, "h");
+        bst.insert(8, "h");
 
         bst.delete(7);
 

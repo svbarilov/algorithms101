@@ -2,7 +2,7 @@ package algorithms;
 
 public class BinarySearchTree {
 
-    class Node {
+    public class Node {
         int key;
         String value;
         Node left, right;
@@ -217,4 +217,5 @@ public class BinarySearchTree {
         System.out.println(" / \\  / \\");
         System.out.println(rootLeftLeftKey + "  " + rootLeftRightKey + " " + rootRightLeftKey + "   " + rootRightRightKey);
     }
+
 }
