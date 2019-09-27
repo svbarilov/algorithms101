@@ -27,6 +27,7 @@ package challenges.leetCode.BinaryTree;
 public class SymmetricTree {
 
     public static void main(String[] args) {
+        Integer test = Math.min(3, 3);
         TreeNode root = TreeNode.setupSymmetricTree();
 //        TreeNode root = TreeNode.setupAssymetricTree();
         boolean result = isSymmetric(root);
